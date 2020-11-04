@@ -3,7 +3,7 @@
 const Airtable = require('airtable');
 
 /** THIS IS YOUR SERVERLESS FUNCTION */
-/**exports.handler = function(event, context, callback) {
+exports.handler = function(event, context, callback) {
   //pull the required information from your environment variables, which can be set in the Netlify UI
   const {API_URL, API_CLIENT_ID, API_KEY } = process.env;
 
@@ -23,11 +23,23 @@ const Airtable = require('airtable');
   var base = Airtable.base(API_CLIENT_ID);
   
   const data = [];
-  
+  base('Table 1').create([{
+    "fields":{
+        "Name":"5",
+        "login":"Gabriel",
+        "senha":"gabriel123",
+        "atributo1":"ok"
+    }
+}], function(err, records){
+    if (err){ console.error(err);
+    return;}records.forEach(function(record){
+        console.log(record.getId());
+    });
+})
   /**
     AIRTABLE REQUEST LOGIC GOES HERE, APPENDING TO DATA
     REFERENCE YOUR BASE-SPECIFIC API FOR EXAMPLES OF
     COMMON CRUD OPERATIONS
   */
 
-  //send(data);}
+  send(data);}
