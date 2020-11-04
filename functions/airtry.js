@@ -1,35 +1,34 @@
+
+// IMPORT THE AIRTABLE.JS PACKAGE
 const Airtable = require('airtable');
-Airtable.configure({
+
+/** THIS IS YOUR SERVERLESS FUNCTION */
+exports.handler = function(event, context, callback) {
+  //pull the required information from your environment variables, which can be set in the Netlify UI
+  const {API_URL, API_CLIENT_ID, API_KEY } = process.env;
+
+  // THIS FUNCTION FORMATS AND SENDS YOUR RESPONSE BACK TO YOUR FRONT-END
+  const send = body => {
+    callback(null, {
+      statusCode: 200,
+      body: JSON.stringify(body)
+    });
+  }
+
+  // CONFIGURE YOUR AIRTABLE BASE CONNECTION
+  Airtable.configure({
     endpointUrl: API_URL,
     apiKey: API_KEY
   });
-const base = Airtable.base('appNtnZ99fkL1cByn');
-exports.handler = function(event, context, callback) {
-    console.log('so far so good');
-    const {API_URL, API_CLIENT_ID, API_KEY } = process.env;
-    console.log('this is working');
-    
-    /*base('Table 1').select({
-        maxRecords: 3,
-        view: "Grid view"
-    }).eachPage(function page(records, fetchNextPage){
-        records.forEach(function(record){
-            console.log('Retrieved', record.get('Name'));
-        });
-        fetchNextPage();}, function done(err){
-            if (err) {console.error(err); return;}
-        });*/
-    base('Table 1').create([{
-        "fields":{
-            "Name":"5",
-            "login":"Gabriel",
-            "senha":"gabriel123",
-            "atributo1":"ok"
-        }
-    }], function(err, records){
-        if (err){ console.error(err);
-        return;}records.forEach(function(record){
-            console.log(record.getId());
-        });
-    })
-    }
+  var base = Airtable.base(API_CLIENT_ID);
+  
+  const data = [];
+  
+  /**
+    AIRTABLE REQUEST LOGIC GOES HERE, APPENDING TO DATA
+    REFERENCE YOUR BASE-SPECIFIC API FOR EXAMPLES OF
+    COMMON CRUD OPERATIONS
+  */
+
+  send(data);
+}
