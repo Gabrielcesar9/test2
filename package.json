@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "airtable": "^0.10.0"
+    "airtable": "^0.10.0",
+    "netlify": "^4.9.0"
   },
   "devDependencies": {},
   "scripts": {
