@@ -1,3 +1,4 @@
+const Airtable = require('airtable');
 exports.handler = function(event, context, callback) {
     console.log('so far so good');
     var Airtable = require ('airtable');
