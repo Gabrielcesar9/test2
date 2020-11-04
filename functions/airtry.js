@@ -1,12 +1,14 @@
 const Airtable = require('airtable');
+Airtable.configure({
+    endpointUrl: API_URL,
+    apiKey: API_KEY
+  });
+const base = Airtable.base('appNtnZ99fkL1cByn');
 exports.handler = function(event, context, callback) {
     console.log('so far so good');
     const {API_URL, API_CLIENT_ID, API_KEY } = process.env;
     console.log('this is working');
-    Airtable.configure({
-        endpointUrl: API_URL,
-        apiKey: API_KEY
-      });
+    
     /*base('Table 1').select({
         maxRecords: 3,
         view: "Grid view"
