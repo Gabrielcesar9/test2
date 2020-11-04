@@ -1,9 +1,7 @@
 const Airtable = require('airtable');
 exports.handler = function(event, context, callback) {
     console.log('so far so good');
-    var Airtable = require ('airtable');
-    var base = new Airtable({apiKey:'keyFqKmXCtU2IkZGw'}).base(
-    'app1ANJMB2FcVdb5o');
+    const {API_URL, API_CLIENT_ID, API_KEY } = process.env;
     console.log('this is working');
     /*base('Table 1').select({
         maxRecords: 3,
