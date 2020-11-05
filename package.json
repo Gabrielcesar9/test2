@@ -3,19 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-	  "start": "./node_modules/.bin/netlify-lambda serve src",
-    "build": "./node_modules/.bin/netlify-lambda build src"
-  },
   "dependencies": {
     "airtable": "^0.10.0",
     "netlify": "^4.9.0",
+    "netlify-lambda": "^2.0.1",
+    "npm-run-all": "^4.1.5",
     "request": "^2.88.2",
     "require": "^2.4.20"
   },
   "devDependencies": {
-    "netlify-lambda": "^2.0.1"},
-  
+    "netlify-lambda": "^2.0.1",
+    "npm-run-all": "^4.1.5"
+  },
+  "scripts": {
+    "dev": "netlify-lambda serve functions",
+    "build:lambda": "netlify-lambda build functions"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Gabrielcesar9/test2.git"
