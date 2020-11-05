@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	  "dev": "netlify-lambda serve functions",
-	  "build": "netlify-lambda build functions"
+	  "start": "./node_modules/.bin/netlify-lambda serve src",
+    "build": "./node_modules/.bin/netlify-lambda build src"
   },
   "dependencies": {
     "airtable": "^0.10.0",
