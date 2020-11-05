@@ -6,12 +6,14 @@
   "dependencies": {
     "airtable": "^0.10.0",
     "netlify": "^4.9.0",
+    "netlify-lambda": "^2.0.1",
     "request": "^2.88.2",
     "require": "^2.4.20"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+	  "dev": "netlify-lambda serve functions",
+	  "build": "netlify-lambda build functions"
   },
   "repository": {
     "type": "git",
