@@ -1,3 +1,10 @@
+const express = require('express');
+const app = express();
+app.all("/", function(req, res, next) {
+  req.header("Origin", "*"); // ideally the '*' will be your hostname
+  return next();
+});
+const serverless = require('serverless-http');
 const Airtable = require ('airtable');
 exports.handler = function(event, context, callback) {
   

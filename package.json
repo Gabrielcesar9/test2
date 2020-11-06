@@ -5,11 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "airtable": "^0.10.0",
+    "express": "^4.17.1",
     "netlify": "^4.9.0",
     "netlify-lambda": "^2.0.1",
     "npm-run-all": "^4.1.5",
     "request": "^2.88.2",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "serverless": "^2.10.0"
   },
   "devDependencies": {
     "netlify-lambda": "^2.0.1",
